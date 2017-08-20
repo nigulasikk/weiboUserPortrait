@@ -2,5 +2,14 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  div #{users}
+  ul.weibo-list
+    for u in users
+      li 
+        img.head(src=u.photo)
+        h3 #{u.name}
+        #{u.intro}
+        #{u.follows}
+        #{u.fans}
+        #{u.weibos}
+    else
+      li sorry, no users!
