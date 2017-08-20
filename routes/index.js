@@ -19,8 +19,8 @@ router.get('/', async(ctx, next) => {
   fans: String,
   weibos: String
  */
-router.get('/add', async(ctx, next) => {
-    var user = new WeiboUser({ name: 'kaikai', intro: 'xixi', photo: 'xixi', follows: 'xixi', fans: 'xixi', weibos: 'xixi' });
+router.post('/add', async(ctx, next) => {
+    var user = new WeiboUser(ctx.request.body);
     await user.save();
     ctx.body = 'add success!'
 })
